@@ -1,5 +1,5 @@
-import CartoonImg from './assets/cartoon.webp';
-import './index.css';
+import CartoonImg from '../../assets/cartoon.webp';
+import '../../index.css';
 
 export default function Header(){
 
