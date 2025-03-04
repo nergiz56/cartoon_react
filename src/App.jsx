@@ -1,12 +1,20 @@
 import './index.css'
 import Header from './components/Header/Header.jsx'
 import Network from './components/Network.jsx'
-import { Cartoon_Network } from './data.js'
+import { Cartoon_Network, Example } from './data.js'
+import Button from './components/Button.jsx'
+import { useState } from 'react'
 
 
 
 function App() {
 
+const [selectedNetwork, setSelectedNetwork]= useState("BugsBunny");
+
+function handleSelect(selectedButonNetwork){
+
+  setSelectedNetwork(selectedButonNetwork);
+}
 
   return (
     <>
@@ -32,16 +40,27 @@ function App() {
                 description={Cartoon_Network[3].description}
                 image={Cartoon_Network[3].image}
           />
-           
           </ul>
+          </section>
+          <section id="examples">
+            <h2>...</h2>
+            <menu>
+            <Button onSelect={()=> handleSelect('BugsBunny')}>Bugs Bunny</Button>
+            <Button onSelect={()=> handleSelect('Şirinler')}>Şirinler</Button>
+            <Button onSelect={()=> handleSelect('PowerpuffGirls')}>Powerpuff-Girls</Button>
+            <Button onSelect={()=> handleSelect('PinkPanther')}>Pink-Panther</Button>
+            </menu>
+            <div id='tab-content'>
+                <h3>{Example[selectedNetwork].title}</h3>
+                <p>{Example[selectedNetwork].description}</p>
+                <pre>
+                  <code>{Example[selectedNetwork].code}</code>
+                </pre>
+            </div>
           </section>
         </main>
            
      
-        
-    
-
-       
     </>
   )
 }
