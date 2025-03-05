@@ -23,6 +23,11 @@ function handleSelect(selectedButonNetwork){
           <section id='core-concepts' >
           <h2>CarTonn NetWork</h2>
           <ul>
+            {Cartoon_Network.map((network_item) => (
+              <Network key={network_item.title} {...network_item}/>
+            ))} 
+
+              {/* Bu kod alanını dinamikleştiriceğiz!
               <Network
                 title={Cartoon_Network[0].title}
                 description={Cartoon_Network[0].description}
@@ -38,25 +43,23 @@ function handleSelect(selectedButonNetwork){
               /><Network
                 title={Cartoon_Network[3].title}
                 description={Cartoon_Network[3].description}
-                image={Cartoon_Network[3].image}
-          />
+                image={Cartoon_Network[3].image} />*/}
           </ul>
           </section>
           <section id="examples">
-            <h2>...</h2>
+            <h2><br></br></h2>
             <menu>
-            <Button onSelect={()=> handleSelect('BugsBunny')}>Bugs Bunny</Button>
-            <Button onSelect={()=> handleSelect('Şirinler')}>Şirinler</Button>
-            <Button onSelect={()=> handleSelect('PowerpuffGirls')}>Powerpuff-Girls</Button>
-            <Button onSelect={()=> handleSelect('PinkPanther')}>Pink-Panther</Button>
+            <Button isSelected={selectedNetwork==='BugsBunny'}  onSelect={()=> handleSelect('BugsBunny')}>Bugs Bunny</Button>
+            <Button isSelected={selectedNetwork==='Sirinler'} onSelect={()=> handleSelect('Sirinler')}>Şirinler</Button>
+            <Button isSelected={selectedNetwork==='PowerpuffGirls'} onSelect={()=> handleSelect('PowerpuffGirls')}>Powerpuff-Girls</Button>
+            <Button isSelected={selectedNetwork==='PinkPanther'} onSelect={()=> handleSelect('PinkPanther')}>Pink-Panther</Button>
             </menu>
-            <div id='tab-content'>
+
+              
+                <div id='tab-content'>
                 <h3>{Example[selectedNetwork].title}</h3>
                 <p>{Example[selectedNetwork].description}</p>
-                <pre>
-                  <code>{Example[selectedNetwork].code}</code>
-                </pre>
-            </div>
+                </div>
           </section>
         </main>
            
